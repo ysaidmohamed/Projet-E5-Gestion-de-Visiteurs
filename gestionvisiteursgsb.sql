@@ -158,7 +158,6 @@ INSERT INTO `travailler` (`VIS_MATRICULE`, `JJMMAA`, `REG_CODE`, `TRA_ROLE`) VAL
 (12, '2021-11-17 09:07:18', 22, 'Chercheur'),
 (2, '2021-12-06 08:53:28', 23, 'Biologiste'),
 (4, '2021-12-07 09:07:18', 22, 'Technicien de Laboratoire'),
-(3, '2022-03-09 00:00:00', 18, 'Aope');
 
 -- --------------------------------------------------------
 
