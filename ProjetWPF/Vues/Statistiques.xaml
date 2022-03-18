@@ -1,0 +1,63 @@
+﻿<Window x:Class="ProjetWPF.Vues.Statistiques"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetWPF.Vues"
+        mc:Ignorable="d"
+        Title="Statistiques" Height="450" Width="800" Loaded="Window_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"></RowDefinition>
+            <RowDefinition Height="134*"></RowDefinition>
+            <RowDefinition Height="54*"></RowDefinition>
+            <RowDefinition Height="44*"></RowDefinition>
+            <RowDefinition Height="48*"></RowDefinition>
+            <RowDefinition Height="38*"></RowDefinition>
+            <RowDefinition Height="33*"></RowDefinition>
+            <RowDefinition Height="22*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185*"></ColumnDefinition>
+            <ColumnDefinition Width="179*"/>
+            <ColumnDefinition Width="219*"></ColumnDefinition>
+            <ColumnDefinition Width="209*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="Aqua" Offset="0"></GradientStop>
+                <GradientStop Color="Purple" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Text="Statistiques" FontSize="40" FontFamily="Impact" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="4"></TextBlock>
+        <TextBlock Text="Nombre de régions par secteur" FontSize="20" FontFamily="Impact" TextAlignment="Center" Grid.Row="0" Margin="-13,26,90,108" Grid.ColumnSpan="2" Grid.RowSpan="2"></TextBlock>
+        <TextBlock Text="Les visiteurs non responsable d'un secteur"  TextAlignment="Center" FontSize="10" FontFamily="Impact"  Grid.Row="0" Grid.Column="3" Margin="0,30,0,104" Grid.RowSpan="2"></TextBlock>
+        <TextBlock Text="{Binding PourcentageVisiteurs}" Grid.Row="2" Grid.Column="3" Margin="10,0,146,39"/>
+        <!--<TextBlock Text="% non responsables d'un secteur."  TextAlignment="Center" FontSize="10" FontFamily="Impact"  Grid.Row="2" Grid.Column="3" Margin="35,0,-22,39"/>-->
+        <Button Name="regionsActives" Content="Les régions les plus actives"  FontSize="30" FontFamily="Impact"  Grid.Row="3" Grid.Column="0" Margin="23,13.667,206,33.333" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="Beige" Click="regionsActives_Click"/>
+        <ListBox Name="lstRegionsParSecteur" Grid.Row="1" Background="Aqua" BorderBrush="{x:Null}" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding LibSecteur1}" Width="130"></TextBlock>
+                        <TextBlock Text="{Binding NbrRegions1}" Width="130"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="lstVisiteursSansSecteurs" Grid.Row="1" Background="Aquamarine" BorderBrush="{x:Null}" Grid.Column="4">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Nom}" Width="130"></TextBlock>
+                        <TextBlock Text="{Binding Prenom}" Width="130"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Name="btnRetour" Click="btnRetour_Click" Content="Retour" Background="Wheat" Grid.Row="6" Grid.Column="3"></Button>
+        <Button x:Name="tauxEmbauche" Content="Nombre d'embauches selon le mois"  FontSize="20" FontFamily="Impact"  Grid.Row="4" Grid.Column="0" Margin="23,30.667,206,10.333" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="Gray" Click="tauxEmbauche_Click"/>
+    </Grid>
+</Window>
