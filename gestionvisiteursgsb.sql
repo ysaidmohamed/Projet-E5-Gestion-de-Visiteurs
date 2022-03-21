@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 18 mars 2022 à 10:31
+-- Généré le : lun. 21 mars 2022 à 09:15
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `region` (
   `REG_NOM` varchar(50) NOT NULL,
   PRIMARY KEY (`REG_CODE`),
   KEY `SEC_CODE` (`SEC_CODE`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `region`
@@ -136,28 +136,30 @@ CREATE TABLE IF NOT EXISTS `travailler` (
   `JJMMAA` datetime NOT NULL,
   `REG_CODE` int(2) NOT NULL,
   `TRA_ROLE` varchar(50) NOT NULL,
-  PRIMARY KEY (`JJMMAA`) USING BTREE,
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
   KEY `REG_CODE` (`REG_CODE`),
-  KEY `VIS_MATRICULE` (`VIS_MATRICULE`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `VIS_MATRICULE` (`VIS_MATRICULE`),
+  KEY `JJMMAA` (`JJMMAA`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `travailler`
 --
 
-INSERT INTO `travailler` (`VIS_MATRICULE`, `JJMMAA`, `REG_CODE`, `TRA_ROLE`) VALUES
-(14, '2020-03-27 09:18:21', 26, 'Directeur R&D'),
-(7, '2020-07-16 09:14:52', 26, 'Biologiste moléculaire'),
-(15, '2020-10-15 09:14:52', 25, 'Ingénieur Biomédical'),
-(9, '2021-01-14 09:16:31', 26, 'Délégué Pharmaceutique'),
-(8, '2021-04-22 09:12:26', 20, 'Péparateur'),
-(6, '2021-06-03 09:16:31', 19, 'Formulateur'),
-(1, '2021-06-10 09:13:35', 16, 'Safranier'),
-(3, '2021-08-17 09:13:35', 21, 'Radiopharmacien'),
-(5, '2021-09-02 09:12:26', 24, 'Microbiologiste'),
-(12, '2021-11-17 09:07:18', 22, 'Chercheur'),
-(2, '2021-12-06 08:53:28', 23, 'Biologiste'),
-(4, '2021-12-07 09:07:18', 22, 'Technicien de Laboratoire');
+INSERT INTO `travailler` (`VIS_MATRICULE`, `JJMMAA`, `REG_CODE`, `TRA_ROLE`, `id`) VALUES
+(14, '2020-03-27 09:18:21', 26, 'Directeur R&D', 1),
+(7, '2020-07-16 09:14:52', 26, 'Biologiste moléculaire', 2),
+(15, '2020-10-15 09:14:52', 25, 'Ingénieur Biomédical', 3),
+(9, '2021-01-14 09:16:31', 26, 'Délégué Pharmaceutique', 4),
+(8, '2021-04-22 09:12:26', 20, 'Péparateur', 5),
+(6, '2021-06-03 09:16:31', 19, 'Formulateur', 6),
+(1, '2021-06-10 09:13:35', 16, 'Safranier', 7),
+(3, '2021-08-17 09:13:35', 21, 'Radiopharmacien', 8),
+(5, '2021-09-02 09:12:26', 24, 'Microbiologiste', 9),
+(12, '2021-11-17 09:07:18', 22, 'Chercheur', 10),
+(2, '2021-12-06 08:53:28', 23, 'Biologiste', 11),
+(4, '2021-12-07 09:07:18', 22, 'Technicien de Laboratoire', 12);
 
 -- --------------------------------------------------------
 
@@ -211,13 +213,6 @@ INSERT INTO `visiteur` (`VIS_MATRICULE`, `VIS_NOM`, `VIS_PRENOM`, `VIS_ADRESSE`,
 --
 ALTER TABLE `region`
   ADD CONSTRAINT `region_ibfk_1` FOREIGN KEY (`SEC_CODE`) REFERENCES `secteur` (`SEC_CODE`);
-
---
--- Contraintes pour la table `travailler`
---
-ALTER TABLE `travailler`
-  ADD CONSTRAINT `travailler_ibfk_1` FOREIGN KEY (`REG_CODE`) REFERENCES `region` (`REG_CODE`),
-  ADD CONSTRAINT `travailler_ibfk_2` FOREIGN KEY (`VIS_MATRICULE`) REFERENCES `visiteur` (`VIS_MATRICULE`);
 
 --
 -- Contraintes pour la table `visiteur`
