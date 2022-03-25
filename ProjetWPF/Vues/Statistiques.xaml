@@ -26,10 +26,10 @@
             <ColumnDefinition Width="209*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="Aqua" Offset="0"></GradientStop>
-                <GradientStop Color="Purple" Offset="1"></GradientStop>
-            </LinearGradientBrush>
+			<LinearGradientBrush>
+				<GradientStop Color="Aqua" Offset="0"></GradientStop>
+				<GradientStop Color="Purple" Offset="1"></GradientStop>
+			</LinearGradientBrush>
         </Grid.Background>
         <TextBlock Text="Statistiques" FontSize="40" FontFamily="Impact" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="4"></TextBlock>
         <TextBlock Text="Nombre de régions par secteur" FontSize="20" FontFamily="Impact" TextAlignment="Center" Grid.Row="0" Margin="-13,26,90,108" Grid.ColumnSpan="2" Grid.RowSpan="2"></TextBlock>

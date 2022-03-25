@@ -20,8 +20,8 @@
         <lvc:CartesianChart Height="400" Grid.Column="0" Name="monGraph1"></lvc:CartesianChart>
         <Grid.Background>
             <LinearGradientBrush>
-                <GradientStop Color="Aqua" Offset="0"></GradientStop>
-                <GradientStop Color="Purple" Offset="1"></GradientStop>
+                <GradientStop Color="White" Offset="0"></GradientStop>
+                <GradientStop Color="White" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
     </Grid>

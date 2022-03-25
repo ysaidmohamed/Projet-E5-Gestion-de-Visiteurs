@@ -44,10 +44,38 @@ namespace ProjetWPF.Vues
                 TxtPrenomVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).PrenomVisiteur;
                 TxtAdresseVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).AdresseVisiteur;
                 TxtCPVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).CodePostal;
-                cboCodeSecteurs.SelectedItem = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeSecteur.CodeSecteur;
                 TxtVilleVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).VilleVisiteur;
                 TxtDEVisiteur.SelectedDate = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).DateEmbauche;
-                cboCodesLabos.SelectedValue = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeLabo.CodeLabo;
+                int indexSec = 0;
+                int indexLab = 0;
+
+                foreach(Secteur sec in gstbdd.getAllSecteurs())
+                {
+                    if(sec.LibSecteur.CompareTo((lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeSecteur.LibSecteur) == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        indexSec++;
+                    }
+                }
+                foreach(Labo lab in gstbdd.getAllLabos())
+                {
+                    if(lab.NomLabo.CompareTo((lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeLabo.NomLabo) == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        indexLab++;
+                    }
+                }
+
+
+                cboCodeSecteurs.SelectedIndex = indexSec;
+
+                cboCodesLabos.SelectedIndex = indexLab;
             }
         }
 

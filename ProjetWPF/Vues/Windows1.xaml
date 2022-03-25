@@ -21,7 +21,7 @@
         <Grid.Background>
             <LinearGradientBrush>
                 <GradientStop Color="Aqua" Offset="0"></GradientStop>
-                <GradientStop Color="Purple" Offset="1"></GradientStop>
+                <GradientStop Color="Aqua" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
     </Grid>

@@ -31,9 +31,28 @@ namespace ProjetWPF.Vues
         private void lstRégions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lstRégions.SelectedItem != null)
-            {
+            {   
                 TxtNomRégion.Text = (lstRégions.SelectedItem as Region).NomRegion;
-                cboCodesSecteur.SelectedValue = (lstRégions.SelectedItem as Region).LeSecteur.CodeSecteur;
+
+                int index = 0;
+
+                foreach(Secteur sec in gstbdd.getAllSecteurs())
+                {
+                    if(sec.LibSecteur.CompareTo((lstRégions.SelectedItem as Region).LeSecteur.LibSecteur) == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        index++;
+                    }
+
+                }
+
+                cboCodesSecteur.SelectedIndex = index;
+
+
+                //cboCodesSecteur.Select = (lstRégions.SelectedItem as Region).LeSecteur.CodeSecteur;
             }
         }
 
